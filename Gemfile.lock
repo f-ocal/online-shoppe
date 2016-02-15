@@ -223,5 +223,8 @@ DEPENDENCIES
   sass-rails
   selenium-webdriver
 
+RUBY VERSION
+   ruby 2.2.1p85
+
 BUNDLED WITH
    1.12.0.pre.1
