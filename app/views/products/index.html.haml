@@ -1,0 +1,23 @@
+.container.product-index
+  .row.carousel-holder
+    .col-xs-12
+      #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+        .carousel-inner
+          .item.active
+            %img.slide-image{src: "https://cdn2.f-cdn.com/contestentries/286246/16249024/561e410f701b8_thumb900.jpg"}
+          .item
+            %img.slide-image{src: "http://www.arrastheme.xyz/images/blog/team/sales/newyears-banner-blog.jpg"}
+          .item
+            %img.slide-image{src: "http://hellolennon.com/wp-content/uploads/2015/05/SALE-BANNER.jpg"}
+        %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
+          %span.glyphicon.glyphicon-chevron-left
+        %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic"}
+          %span.glyphicon.glyphicon-chevron-right
+  .row.product-list
+    - @products.each do |product|
+      .col-sm-6.col-md-4.col-lg-3
+        = render partial: 'products/product_tile', locals: {product: product}

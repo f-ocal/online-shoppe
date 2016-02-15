@@ -1,0 +1,19 @@
+-category.products.each do |product|
+  .col-sm-4.col-lg-4.col-md-4
+    .thumbnail
+      %img{:alt => "http://placehold.it/320x150", :src => product.picture}
+        .caption
+          %h4.pull-right $#{product.price}
+          %h4
+            %a{:href => product_path(product)}=product.title
+          %h5
+            %a{:href => ""}=product.categories.first.name
+          %p=product.description
+        .ratings
+          %p.pull-right #{rand(1..20)} reviews
+          %p
+            %span.glyphicon.glyphicon-star
+            %span.glyphicon.glyphicon-star
+            %span.glyphicon.glyphicon-star
+            %span.glyphicon.glyphicon-star
+            %span.glyphicon.glyphicon-star

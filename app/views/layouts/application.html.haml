@@ -1,0 +1,72 @@
+!!!
+.container.debug
+  %html
+    %head
+      %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+      %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+      %title Shoppee
+      = stylesheet_link_tag    'application', media: 'all'
+      = javascript_include_tag 'application'
+      = csrf_meta_tags
+    %body
+      %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+        .container
+
+          .navbar-header
+            %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %a.navbar-brand{:href => root_path} Shoppee
+
+          %ul.nav.navbar-nav.navbar-left
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :style => "font-size: 18px; padding: 0px; padding-top: 5px"}
+                Categories
+              %ul.dropdown-menu
+                - all_categories.each do |category|
+                  %li
+                    %a{:href => category_path(category) }=category.name
+            - if current_user && current_user.admin?
+              %a.navbar-brand{:href => admin_products_path, :style => "font-size: 18px"}  Admin
+
+          %ul.nav.navbar-nav.navbar-right
+            -if user_signed_in?
+              %li
+                %a{:href => "#"} Profile
+              %li
+                = link_to 'Logout', destroy_user_session_path, method: :delete
+            -else
+              %li
+                %a{:href => new_user_registration_path} Sign Up
+              %li
+                %a{:href => new_user_session_path} Login
+            %li.cart-text
+              =render 'layouts/cart_text'
+            %li
+              %a{:href => contact_path } Contact Us
+      .container
+        - if flash[:error]
+          .alert.alert-danger
+            - flash[:error].each do |error|
+              %p
+                = error
+
+        - if flash[:success]
+          .alert.alert-success
+            = flash[:success].each do |success|
+              %p
+                = success
+
+        - if flash[:notice]
+          .alert.alert-info
+            = notice
+
+        - if flash[:alert]
+          .alert.alert-warning
+            = flash[:alert]
+
+      = yield
+      .container
+        %hr
+          %footer
+            .row
+              .col-lg-12
+

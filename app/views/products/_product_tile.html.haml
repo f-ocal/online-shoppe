@@ -1,0 +1,16 @@
+.thumbnail
+  %img{:alt => "http://placehold.it/320x150", :src => product.picture}
+  .caption
+    %h4
+      %a{:href => product_path(product)}=product.title
+    %h5
+      %a{:href => "" }=product.categories.first.name
+    %p.product-description=truncate_if_long(product.description, 40)
+
+    =render partial: 'products/product_add_to_cart', locals: {product: product}
+
+  .ratings
+    %p.pull-right #{rand(1..20)} reviews
+    %p
+      - rand(1..5).times do
+        %span.glyphicon.glyphicon-star

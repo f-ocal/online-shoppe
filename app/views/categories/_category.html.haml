@@ -1,0 +1,4 @@
+.row.product-list
+  - @products.each do |product|
+    .col-sm-6.col-md-4.col-lg-3
+      = render partial: 'products/product_tile', locals: {product: product}

@@ -1,0 +1,74 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.dropdown {
+  padding: 10px;
+}
+
+.caption {
+  height: 210px;
+  // overflow: hidden;
+}
+
+.product-description {
+    max-height: 40px;
+    overflow: hidden;
+}
+
+// .caption h4 {
+//     white-space: nowrap;
+// }
+
+.thumbnail img {
+    max-width: 800px;
+    max-height: 400px;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.cart-container {
+    margin: 50px 0 20px 0;
+}
+
+.quantity-field {
+    padding: 10px;
+}
+
+.cart-function {
+    padding-top: 50px;
+}
+
+footer {
+    margin: 50px 0;
+}

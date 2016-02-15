@@ -1,0 +1,30 @@
+= form_for :product, url: products_path do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h3
+        = pluralize(@product.errors.count, "error")
+        prevented this product from being saved:
+        %br
+  %p
+    = f.label :title
+    %br
+      = f.text_field :title
+  %p
+    = f.label :picture
+    %br
+      = f.url_field :picture
+  %p
+    = f.label :description
+    %br
+      = f.text_area :description
+  %p
+    = f.label :quantity
+    %br
+      = f.number_field :quantity
+  %p
+    = f.label :price
+    %br
+      = f.number_field :price
+  %p
+    = f.submit
+= link_to 'Back', products_path

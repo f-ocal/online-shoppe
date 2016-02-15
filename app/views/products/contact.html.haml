@@ -1,0 +1,22 @@
+.contact-page
+  .container
+    .col-md-6
+      %h1 Contact Us
+      %form{:action => "mailto:DBC.Shoppe@gmail.com", :enctype => "text/plain", :method => "GET"}
+        .form-group
+          %label{:for => "username"} Name:
+          %input.form-control{:name => "user[name]", :placeholder => "Enter your name", :type => "text"}
+        .form-group
+          %label{:for => "email"} Email Address:
+          %input.form-control{:name => "user[email]", :placeholder => "Enter your email address", :type => "email"}
+        .form-group
+          %label{:for => "enquiry"} Enquiry:
+          %textarea.form-control{:placeholder => "Please enter your enquiry", :rows => "7"}
+        %button.btn.btn-default{:type => "submit"} Submit
+    .col-md-6
+      %h3.page-header We are here to help
+      %p.paragraph
+        If you have any enquiries, please feel free to send us via contact service form on the left. You can also send us an email via
+        %a{:href => "mailto:DBC.Shoppe@gmail.com?subject=Contacting%20you...&body=Please%20help!!"} contact us.
+
+        Thank you.

@@ -1,0 +1,61 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      .thumbnail
+        %img.img-responsive{:alt => "http://placehold.it/800x300", :src => @product.picture}
+          .caption-full
+            %h4
+              %a{:href => product_path(@product)}=@product.title
+            %p=@product.description
+            Stock: #{@product.quantity}
+            =render partial: 'product_add_to_cart', locals: {product: @product, order_item: @order_item}
+          .ratings
+            %p.pull-right 3 reviews
+            %p
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star-empty
+              4.0 stars
+      .well
+        .text-right
+          %a.btn.btn-success Leave a Review
+        %hr
+          .row
+            .col-md-12
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star
+              %span.glyphicon.glyphicon-star-empty
+              Anonymous
+              %span.pull-right 10 days ago
+              %p This product was great in terms of quality. I would definitely buy another!
+
+
+
+
+
+
+
+
+
+
+
+/ %h2 The product details
+/ Title: #{@product.title}
+/ %br
+/   %img{:src => @product.picture}
+/   %br
+/     Description: #{@product.description}
+/     %br
+/       QTY: #{@product.quantity}
+/       %br
+/         Price: $#{@product.price}
+
+/ = link_to 'Edit', edit_product_path(@product)
+/ |
+/ = link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure you want to remove the item'}
+/ |
+/ = link_to 'Back', products_path

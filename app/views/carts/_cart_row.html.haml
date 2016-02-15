@@ -1,0 +1,25 @@
+.row
+  .col-xs-4
+    %img.img-responsive{:alt => "http://placehold.it/800x300", :src => order_item.product.picture}
+  .col-xs-4
+    %h4= order_item.product.title
+    %h4
+      Unit Price:
+      %span=number_to_currency order_item.unit_price
+    %h4
+      Quantity:
+      %span.quantity-in-cart=order_item.quantity.to_i
+  .col-xs-4.cart-function
+    =form_for order_item, remote: true do |f|
+      .row.quantity-field
+        .col-xs-4
+          %div{:class => ".form-control min: 1"}=f.number_field :quantity, value: order_item.quantity.to_i
+          %div=f.hidden_field :product_id, value: product.id
+      .row
+        .col-xs
+          .btn-group
+            = f.submit "Update Quantity", class: "btn btn-primary"
+            = link_to "Delete", order_item, {data: {confirm: "Are you sure you wish to delete the product '#{order_item.product.title}' from your cart?"}, method: :delete, remote: true, class: "btn btn-danger"}
+      %h4
+        Total Price:
+        %span{:style => "color: green"}= number_to_currency order_item.total_price

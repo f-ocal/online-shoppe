@@ -1,0 +1,17 @@
+- if @order_items.size == 0
+  %p.text-center
+    There are no items in your shopping cart.  Please #{link_to "go back", root_path} and add some items to your cart.
+- else
+  .well.col-md-4.pull-right.check-out
+    .col-xs-12
+      %h4
+        Total Price:
+        %span{:style => "color: green"}=number_to_currency current_order.subtotal
+
+    .col-xs-4
+      .btn-group
+        %a.btn.btn-warning{:href => "#", :role => "button"} Checkout
+
+  - @order_items.each do |order_item|
+    .well.col-md-7.pull-left
+      = render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true

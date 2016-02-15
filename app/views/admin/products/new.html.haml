@@ -1,0 +1,30 @@
+= form_for :product, url: admin_products_path(@product) do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h3
+        = pluralize(@product.errors.count, "error")
+        prevented this product from being saved:
+        %br
+  %p
+    = f.label :title
+    %br
+      = f.text_field :title, class: "form-control", style: "width: 350px", :placeholder => "Please enter title"
+  %p
+    = f.label :picture
+    %br
+      = f.url_field :picture, class: "form-control", style: "width: 350px", :placeholder => "Please enter url of the picture"
+  %p
+    = f.label :description
+    %br
+      = f.text_area :description, class: "form-control", style: "width: 350px", :placeholder => "Please enter description"
+  %p
+    = f.label :quantity
+    %br
+      = f.number_field :quantity, class: "form-control", style: "width: 150px", :placeholder => "Available quantity"
+  %p
+    = f.label :price
+    %br
+      = f.number_field :price, class: "form-control", style: "width: 150px", :placeholder => "Unit price"
+  %p
+    = f.submit class: "form-control", style: "width: 130px"
+= link_to 'Back', admin_products_path
