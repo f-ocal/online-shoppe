@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 gem 'rails', '4.2.5'
-gem 'pg', '~> 0.15'
+gem 'pg'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -14,6 +14,10 @@ gem 'awesome_print'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails'
 gem 'httparty'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'dotenv-rails'
