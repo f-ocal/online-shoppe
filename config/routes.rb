@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
-
   namespace :admin do
     resources :products
   end
+
+  devise_for :users, controllers: {
+      sessions: 'users/sessions'
+  }
 
   get '/contact' => 'products#contact'
 
