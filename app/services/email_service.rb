@@ -5,3 +5,4 @@ class EmailService
   end
 
 end
+

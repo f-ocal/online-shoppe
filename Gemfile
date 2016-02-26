@@ -1,5 +1,3 @@
-source 'https://rubygems.org'
-
 ruby '2.2.1'
 
 gem 'rails', '4.2.5'
@@ -14,6 +12,7 @@ gem 'awesome_print'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails'
 gem 'httparty'
+
 
 group :production do
   gem 'rails_12factor'

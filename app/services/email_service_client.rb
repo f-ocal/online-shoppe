@@ -17,3 +17,5 @@ class EmailServiceClient
     HTTParty.post("#{@base_url}/emails", {body: {email: email}})
   end
 end
+
+response = JSON.parse(HTTParty.get('https://api.mapbox.com/uploads/v1/username/credentials?access_token='))

@@ -11,3 +11,4 @@ class User < ActiveRecord::Base
     EmailService.new.send_signup_email(email)
   end
 end
+
